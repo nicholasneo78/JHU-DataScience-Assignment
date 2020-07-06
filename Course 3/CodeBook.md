@@ -17,6 +17,7 @@
 		- LAYING
 		
 ### _Renaming of descriptive activities using gsub()_
+`
 To make the descriptive activities more understandable, there is a naming convention to rename the descriptive activities.
 	- Replace the special characters like brackets, parentheses, dash with a space
 	- Replace mean with Mean
@@ -27,7 +28,7 @@ To make the descriptive activities more understandable, there is a naming conven
 	- Replace Gyro with Gyroscope
 	- Replace Mag with Magnitude
 	- Replace Freq with Frequency
-	
+`	
 ### _Steps to transform raw data_
 	1. Download source data and unzip the data if files does not exists yet
 	2. Get train and test sets of subjects, activities and features
@@ -37,6 +38,7 @@ To make the descriptive activities more understandable, there is a naming conven
 	6. Export tidy_raw.txt and tidy_mean.txt files with write.table
 	
 ### _Measurements_
+`
 The measurements taken (after the renaming of descriptive activities) 
 	- TimeBodyAccelerometerMeanX/Y/Z
 	- TimeBodyAccelerometerStandardDeviationX/Y/Z
@@ -78,3 +80,4 @@ The measurements taken (after the renaming of descriptive activities)
 	- FrequencyBodyBodyGyroscopeJerkMagnitudeMean
 	- FrequencyBodyBodyGyroscopeJerkMagnitudeStandardDeviation
 	- FrequencyBodyBodyGyroscopeJerkMagnitudeMeanFrequency
+`
