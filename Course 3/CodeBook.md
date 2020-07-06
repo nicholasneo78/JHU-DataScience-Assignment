@@ -38,24 +38,39 @@ To make the descriptive activities more understandable, there is a naming conven
 	
 ### _Measurements_
 The measurements taken (after the renaming of descriptive activities) 
-	- TimeBodyAccelerometerMeanX/Y/Z | TimeBodyAccelerometerStandardDeviationX/Y/Z
-	- TimeGravityAccelerometerMeanX/Y/Z | TimeGravityAccelerometerStandardDeviationX/Y/Z
-	- TimeBodyAccelerometerJerkMeanX/Y/Z | TimeBodyAccelerometerJerkStandardDeviationX/Y/Z
-	- TimeBodyGyroscopeMeanX/Y/Z | TimeBodyGyroscopeStandardDeviationX/Y/Z
-	- TimeBodyGyroscopeJerkMeanX/Y/Z | TimeBodyGyroscopeJerkStandardDeviationX/Y/Z
-	- TimeBodyAccelerometerMagnitudeMean | TimeBodyAccelerometerMagnitudeStandardDeviation
-	- TimeGravityAccelerometerMagnitudeMean | TimeGravityAccelerometerMagnitudeStandardDeviation
-	- TimeBodyAccelerometerJerkMagnitudeMean | TimeBodyAccelerometerJerkMagnitudeMeanStandardDeviation
-	- TimeBodyGyroscopeMagnitudeMean | TimeBodyGyroscopeMagnitudeStandardDeviation
-	- TimeBodyGyroscopeJerkMagnitudeMean | TimeBodyGyroscopeJerkMagnitudeStandardDeviation
-	- FrequencyBodyAccelerometerMeanX/Y/Z | FrequencyBodyAccelerometerStandardDeviationX/Y/Z
-	- FrequencyBodyAccelerometerJerkMeanX/Y/Z | FrequencyBodyAccelerometerJerkStandardDeviationX/Y/Z
+	- TimeBodyAccelerometerMeanX/Y/Z
+	- TimeBodyAccelerometerStandardDeviationX/Y/Z
+	- TimeGravityAccelerometerMeanX/Y/Z
+	- TimeGravityAccelerometerStandardDeviationX/Y/Z
+	- TimeBodyAccelerometerJerkMeanX/Y/Z
+	- TimeBodyAccelerometerJerkStandardDeviationX/Y/Z
+	- TimeBodyGyroscopeMeanX/Y/Z
+	- TimeBodyGyroscopeStandardDeviationX/Y/Z
+	- TimeBodyGyroscopeJerkMeanX/Y/Z
+	- TimeBodyGyroscopeJerkStandardDeviationX/Y/Z
+	- TimeBodyAccelerometerMagnitudeMean
+	- TimeBodyAccelerometerMagnitudeStandardDeviation
+	- TimeGravityAccelerometerMagnitudeMean
+	- TimeGravityAccelerometerMagnitudeStandardDeviation
+	- TimeBodyAccelerometerJerkMagnitudeMean
+	- TimeBodyAccelerometerJerkMagnitudeMeanStandardDeviation
+	- TimeBodyGyroscopeMagnitudeMean
+	- TimeBodyGyroscopeMagnitudeStandardDeviation
+	- TimeBodyGyroscopeJerkMagnitudeMean
+	- TimeBodyGyroscopeJerkMagnitudeStandardDeviation
+	- FrequencyBodyAccelerometerMeanX/Y/Z
+	- FrequencyBodyAccelerometerStandardDeviationX/Y/Z
+	- FrequencyBodyAccelerometerJerkMeanX/Y/Z
+	- FrequencyBodyAccelerometerJerkStandardDeviationX/Y/Z
 	- FrequencyBodyAccelerometerJerkMeanFrequencyX/Y/Z
-	- FrequencyBodyGyroMeanX/Y/Z | FrequencyBodyGyroStandardDeviationX/Y/Z
+	- FrequencyBodyGyroMeanX/Y/Z
+	- FrequencyBodyGyroStandardDeviationX/Y/Z
 	- FrequencyBodyGyroMeanFrequencyX/Y/Z
-	- FrequencyBodyAccelerometerMagnitudeMean | FrequencyBodyAccelerometerMagnitudeStandardDeviation
+	- FrequencyBodyAccelerometerMagnitudeMean
+	- FrequencyBodyAccelerometerMagnitudeStandardDeviation
 	- FrequencyBodyAccelerometerMagnitudeMeanFrequency
-	- FrequencyBodyBodyAccelerometerJerkMagnitueMean | FrequencyBodyBodyAccelerometerJerkMagnitueStandardDeviation
+	- FrequencyBodyBodyAccelerometerJerkMagnitueMean
+	- FrequencyBodyBodyAccelerometerJerkMagnitueStandardDeviation
 	- FrequencyBodyBodyAccelerometerJerkMagnitudeMeanFrequency
 	- FrequencyBodyBodyGyroscopeMagnitudeMean
 	- FrequencyBodyBodyGyroscopeMagnitudeStandardDeviation
