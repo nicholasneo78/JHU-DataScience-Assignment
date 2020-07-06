@@ -18,7 +18,6 @@ makeCacheMatrix <- function(x = matrix()) {
        getinv = getinv)
 }
 
-
 ## Write a short comment describing this function
 #' This function computes the inverse of the special
 #' "matrix" returned by makeCacheMatrix above
