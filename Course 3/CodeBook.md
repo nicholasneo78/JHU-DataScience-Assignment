@@ -18,15 +18,15 @@
 		
 ### _Renaming of descriptive activities using gsub()_
 To make the descriptive activities more understandable, there is a naming convention to rename the descriptive activities.
-	* Replace the special characters like brackets, parentheses, dash with a space
-	* Replace mean with Mean
-	* Replace std with StandardDeviation
-	* Replace ^t with Time
-	* Replace ^f with Frequency
-	* Replace Acc with Accelerometer
-	* Replace Gyro with Gyroscope
-	* Replace Mag with Magnitude
-	* Replace Freq with Frequency
+	- Replace the special characters like brackets, parentheses, dash with a space
+	- Replace mean with Mean
+	- Replace std with StandardDeviation
+	- Replace ^t with Time
+	- Replace ^f with Frequency
+	- Replace Acc with Accelerometer
+	- Replace Gyro with Gyroscope
+	- Replace Mag with Magnitude
+	- Replace Freq with Frequency
 	
 ### _Steps to transform raw data_
 	1. Download source data and unzip the data if files does not exists yet
@@ -41,7 +41,7 @@ The measurements taken (after the renaming of descriptive activities)
 	- TimeBodyAccelerometerMeanX/Y/Z | TimeBodyAccelerometerStandardDeviationX/Y/Z
 	- TimeGravityAccelerometerMeanX/Y/Z | TimeGravityAccelerometerStandardDeviationX/Y/Z
 	- TimeBodyAccelerometerJerkMeanX/Y/Z | TimeBodyAccelerometerJerkStandardDeviationX/Y/Z
-    - TimeBodyGyroscopeMeanX/Y/Z | TimeBodyGyroscopeStandardDeviationX/Y/Z
+	- TimeBodyGyroscopeMeanX/Y/Z | TimeBodyGyroscopeStandardDeviationX/Y/Z
 	- TimeBodyGyroscopeJerkMeanX/Y/Z | TimeBodyGyroscopeJerkStandardDeviationX/Y/Z
 	- TimeBodyAccelerometerMagnitudeMean | TimeBodyAccelerometerMagnitudeStandardDeviation
 	- TimeGravityAccelerometerMagnitudeMean | TimeGravityAccelerometerMagnitudeStandardDeviation
@@ -49,16 +49,16 @@ The measurements taken (after the renaming of descriptive activities)
 	- TimeBodyGyroscopeMagnitudeMean | TimeBodyGyroscopeMagnitudeStandardDeviation
 	- TimeBodyGyroscopeJerkMagnitudeMean | TimeBodyGyroscopeJerkMagnitudeStandardDeviation
 	- FrequencyBodyAccelerometerMeanX/Y/Z | FrequencyBodyAccelerometerStandardDeviationX/Y/Z
-    - FrequencyBodyAccelerometerJerkMeanX/Y/Z | FrequencyBodyAccelerometerJerkStandardDeviationX/Y/Z
+	- FrequencyBodyAccelerometerJerkMeanX/Y/Z | FrequencyBodyAccelerometerJerkStandardDeviationX/Y/Z
 	- FrequencyBodyAccelerometerJerkMeanFrequencyX/Y/Z
 	- FrequencyBodyGyroMeanX/Y/Z | FrequencyBodyGyroStandardDeviationX/Y/Z
 	- FrequencyBodyGyroMeanFrequencyX/Y/Z
-    - FrequencyBodyAccelerometerMagnitudeMean | FrequencyBodyAccelerometerMagnitudeStandardDeviation
+	- FrequencyBodyAccelerometerMagnitudeMean | FrequencyBodyAccelerometerMagnitudeStandardDeviation
 	- FrequencyBodyAccelerometerMagnitudeMeanFrequency
 	- FrequencyBodyBodyAccelerometerJerkMagnitueMean | FrequencyBodyBodyAccelerometerJerkMagnitueStandardDeviation
 	- FrequencyBodyBodyAccelerometerJerkMagnitudeMeanFrequency
-    - FrequencyBodyBodyGyroscopeMagnitudeMean
-    - FrequencyBodyBodyGyroscopeMagnitudeStandardDeviation
+	- FrequencyBodyBodyGyroscopeMagnitudeMean
+	- FrequencyBodyBodyGyroscopeMagnitudeStandardDeviation
 	- FrequencyBodyBodyGyroscopeMagnitudeMeanFrequency
 	- FrequencyBodyBodyGyroscopeJerkMagnitudeMean
 	- FrequencyBodyBodyGyroscopeJerkMagnitudeStandardDeviation
