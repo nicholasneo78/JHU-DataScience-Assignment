@@ -3,6 +3,7 @@ UrlFile <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
 filename <- "exdata_data_NEI_data.zip"
 
 library(dplyr)
+library(ggplot2)
 
 if (!file.exists(filename)) {
   download.file(UrlFile, filename, method = "curl")
@@ -22,25 +23,29 @@ SCCData <- readRDS("Source_Classification_Code.rds")
 dataMerged <- merge(PM25Data, SCCData, by = "SCC")
 dataMerged <- subset(dataMerged[ ,1:8])
 
+# Get the coal combustion-related sources by subsetting using grepl
+dataMergedCoalTemp <- grepl("coal", dataMerged$Short.Name, ignore.case = TRUE)
+dataMergedCoal <- dataMerged[dataMergedCoalTemp, ]
+
 # Sum PM2.5 emissions for each year
-totalemissions <- PM25Data %>% 
+totalemissions <- dataMergedCoal %>% 
   group_by(year) %>%
   summarize(sum(Emissions))
 colnames(totalemissions) = c("year", "emissions")
 format(totalemissions$emissions, scientific = FALSE)
 
-# Plot1 deliverables
-png("plot1.png")
-barplot(height = totalemissions$emissions, 
-        names.arg = totalemissions$year, 
-        xlab = "Year",
-        ylab = expression('Total PM'[2.5]*' emission (tons)'),
-        main = expression('Total PM'[2.5]*' emission by year'),
-        ylim = range(pretty(c(0, totalemissions$emissions)))
-) 
+# Plot4 deliverables
+png("plot4.png")
+ggplot(totalemissions, aes(factor(year), emissions, fill = year)) + 
+  geom_col(show.legend = FALSE) +
+  labs(x = "Year", 
+       y = expression('Total PM'[2.5]*' emission (tons)'), 
+       title = expression('Total PM'[2.5]*' emission from coal combustion-related sources by year')
+  ) +
+  ylim(range(pretty(c(0, totalemissions$emissions)))) + 
+  theme_bw()
 dev.off()
 
-# QUESTION 1
-#'Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? 
-#'Using the base plotting system, make a plot showing the total PM2.5 
-#'emission from all sources for each of the years 1999, 2002, 2005, and 2008.
+# QUESTION 4
+#'Across the United States, how have emissions from 
+#'coal combustion-related sources changed from 1999–2008?

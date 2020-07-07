@@ -22,25 +22,28 @@ SCCData <- readRDS("Source_Classification_Code.rds")
 dataMerged <- merge(PM25Data, SCCData, by = "SCC")
 dataMerged <- subset(dataMerged[ ,1:8])
 
+# Get the Baltimore City data by subsetting it according to its fips value
+dataBaltimore <- filter(dataMerged, fips=="24510")
+
 # Sum PM2.5 emissions for each year
-totalemissions <- PM25Data %>% 
+totalemissions <- dataBaltimore %>% 
   group_by(year) %>%
   summarize(sum(Emissions))
 colnames(totalemissions) = c("year", "emissions")
 format(totalemissions$emissions, scientific = FALSE)
 
-# Plot1 deliverables
-png("plot1.png")
+# Plot2 deliverables
+png("plot2.png")
 barplot(height = totalemissions$emissions, 
         names.arg = totalemissions$year, 
         xlab = "Year",
         ylab = expression('Total PM'[2.5]*' emission (tons)'),
-        main = expression('Total PM'[2.5]*' emission by year'),
+        main = expression('Total PM'[2.5]*' emission in Baltimore City by year'),
         ylim = range(pretty(c(0, totalemissions$emissions)))
 ) 
 dev.off()
 
-# QUESTION 1
-#'Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? 
-#'Using the base plotting system, make a plot showing the total PM2.5 
-#'emission from all sources for each of the years 1999, 2002, 2005, and 2008.
+# QUESTION 2
+#'Have total emissions from PM2.5 decreased in the Baltimore City, 
+#'Maryland (fips == "24510") from 1999 to 2008? 
+#'Use the base plotting system to make a plot answering this question.
