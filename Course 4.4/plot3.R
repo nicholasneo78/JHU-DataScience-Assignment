@@ -28,9 +28,9 @@ dataBaltimore <- filter(dataMerged, fips=="24510")
 
 # Sum PM2.5 emissions for each year
 totalemissions <- dataBaltimore %>% 
-  group_by(year) %>%
+  group_by(year,type) %>%
   summarize(sum(Emissions))
-colnames(totalemissions) = c("year", "emissions")
+colnames(totalemissions) = c("year", "type", "emissions")
 format(totalemissions$emissions, scientific = FALSE)
 
 # Plot3 deliverables
