@@ -4,4 +4,6 @@
 .Ruserdata
 *.Rproj
 *.zip
-course 4.1/plot1-1.R
+*household_power_consumption.txt
+
+
