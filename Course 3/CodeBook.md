@@ -37,7 +37,6 @@
 	6. Export tidy_raw.txt and tidy_mean.txt files with write.table
 	
 ### _Measurements_
-
 The measurements taken (after the renaming of descriptive activities) 
 - TimeBodyAccelerometerMeanX/Y/Z
 - TimeBodyAccelerometerStandardDeviationX/Y/Z
