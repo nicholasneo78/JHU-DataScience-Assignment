@@ -81,7 +81,6 @@ max.interval <- stepsbyinterval[stepsbyinterval$steps==max.steps, 1]
 ```
 **The maximum number of steps is `r max.steps`, at interval `r max.interval`.**
 
-
 ## 4. Imputing missing values
 
 4.1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs).
