@@ -2,7 +2,9 @@
 title: "C6W4 Assignment Part 1"
 author: "Nic Neo"
 date: "9 July 2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
