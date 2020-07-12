@@ -1,0 +1,109 @@
+---
+title: "C8W4 Assignment"
+author: "Nicholas Neo"
+date: "12 July 2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem Statement
+Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. 
+
+This project uses data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website [here](http://web.archive.org/web/20161224072740/http:/groupware.les.inf.puc-rio.br/har). (See the section on the Weight Lifting Exercise Dataset).
+
+The training data for this project are available [here](https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv).
+The test data are available [here](https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv).
+
+## Goal
+The goal of this project is to predict the manner in which the participants did the exercise. This is the **classe** variable in the training set. You may use any of the other variables to predict with. You should describe how you built your model, how you used cross validation, what you think the expected out of sample error is, and why you made the choices you did. You will also use your prediction model to predict 20 different test cases.
+
+## Load Data
+```{r load_data}
+# Load packages
+library(dplyr)
+library(caret)
+library(gbm)
+# Get data from the web
+train.URL <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+train.filename <- "pml-training.csv"
+test.URL <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+test.filename <- "pml-testing.csv"
+if (!file.exists(train.filename)) {
+  download.file(train.URL, train.filename, method = "curl")
+}
+if (!file.exists(test.filename)) {
+  download.file(test.URL, test.filename, method = "curl")
+}
+# Read data
+training <- read.csv(train.filename, na.strings = c("NA", ""))
+testing <- read.csv(test.filename, na.strings = c("NA", ""))
+```
+
+## Data cleaning and splitting
+```{r data_cleaning}
+# Drop all columns with NAs
+training <- select_if(training, colSums(is.na(training)) == 0)
+testing <- select_if(testing, colSums(is.na(testing)) == 0)
+# Drop irrelevant columns which will not be good predictors. 
+training <- training[, -c(1:7)]
+testing <- testing[, -c(1:7)]
+# Split training data into training set and validation set
+set.seed(7777)
+train.part <- createDataPartition(training$classe, p = 0.7, list = FALSE)
+training.sub <- training[train.part, ]
+validation <- training[-train.part, ]
+```
+
+## Model fitting and prediction with validation set
+We will compare predictions with 2 models, gradient boosting (gbm) and random forests (rf). For each model fit, we will also conduct k-fold cross validation with 5 folds. 
+
+## Gradient boosting
+```{r gbm_fit}
+# Fit model
+gbm.fit <- train(classe ~ ., 
+                 data = training.sub,
+                 method = "gbm",
+                 trControl = trainControl(method = "cv", number = 5),
+                 verbose = FALSE)
+print(gbm.fit)
+```
+
+**Predict with the validation set.**
+```{r gbm_predict}
+predict.gbm <- predict(gbm.fit, newdata = validation)
+# Calculate out-of-sample accuracy 
+confusionMatrix(predict.gbm, validation$classe)$overall["Accuracy"]
+```
+Accuracy is about 95%, the out-of-sample error is about 5%.
+
+### Random forests
+```{r rf_fit}
+# Fit model 
+rf.fit <- train(classe ~ ., 
+                 data = training.sub,
+                 method = "rf",
+                 trControl = trainControl(method = "cv", number = 5),
+                 verbose = FALSE)
+print(rf.fit)
+```
+
+**Predict with the validation set.** 
+```{r rf_predict}
+predict.rf <- predict(rf.fit, newdata = validation)
+# Calculate out-of-sample accuracy 
+confusionMatrix(predict.rf, validation$classe)$overall["Accuracy"]
+```
+Accuracy with random forests is about 99%, the out-of-sample error is about 1%.  
+  
+**Hence, Random Forest is chosen to predict the test set since it has a higher accuracy as compared to gradient boosting**
+
+## Predict with test set using Random Forest
+```{r predict_test}
+predict.test <- predict(rf.fit, newdata = testing)
+predict.test
+```
