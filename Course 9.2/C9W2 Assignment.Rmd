@@ -23,3 +23,5 @@ coords %>%
     leaflet() %>%
     addTiles() %>%
     addMarkers(popup = popup)
+```
+

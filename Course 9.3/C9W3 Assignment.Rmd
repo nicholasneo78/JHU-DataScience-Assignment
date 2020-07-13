@@ -9,27 +9,33 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
+## Chicken Rice in Singapore
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+An R markdown presentation that shows the top 8 famous Chicken Rice stalls in Singapore for the tourists.  
+[Source](https://www.womensweekly.com.sg/gallery/family/best-chicken-rice-stalls-we-love-in-singapore/)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-## Slide with Bullets
+## Best 8 Chicken Rice stalls in Singapore
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- Jew Kit Hainanese Chicken Rice
+- Boneless Chicken Rice Katong Shopping Centre
+- Boon Tong Kee Chicken Rice
+- Tong Fong Fatt Hainanese Boneless Chicken Rice
+- Poh Poh Roasted Chicken Rice
+- Hainanese Delicacy
+- Five Star Hainanese Chicken Rice
+- Ming Kee Chicken Rice
 
-## Slide with R Output
+## Venue on the map
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
+```{r plot_venue, echo=FALSE, warning=FALSE}
+library(leaflet)
+coords <- data.frame(lat = c(1.299950, 1.303940, 1.343340, 1.313170, 1.320520, 1.307180, 1.307200, 1.348290),
+           lng = c(103.840200, 103.901350, 103.775140, 103.785640, 103.742630, 103.833810, 103.906420, 103.853170))
+popup <- c("Jew Kit Hainanese Chicken Rice", "Boneless Chicken Rice Katong Shopping Centre", "Boon Tong Kee Chicken Rice", "Tong Fong Fatt Hainanese Boneless Chicken Rice", "Poh Poh Roasted Chicken Rice", "Hainanese Delicacy", "Five Star Hainanese Chicken Rice", "Ming Kee Chicken Rice")
+coords %>% 
+    leaflet() %>%
+    addTiles() %>%
+    addMarkers(popup = popup)
 ```
 
