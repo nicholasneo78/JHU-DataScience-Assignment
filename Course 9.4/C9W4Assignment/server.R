@@ -1,6 +1,9 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+
+head(diamonds)
+
 # select columns to be used in the analysis
 diam <- diamonds[,c(1:4,7)]
 # Define server logic required to draw a plot

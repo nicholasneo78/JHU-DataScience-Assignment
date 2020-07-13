@@ -1,0 +1,41 @@
+---
+title: "C9W4 Assignment (Reproducible Pitch)"
+author: "Nicholas Neo"
+date: "13 July 2020"
+output: ioslides_presentation
+---
+
+## About the Dataset
+- Diamonds dataset from the ggplot2 package.
+- Consists of 53940 diamonds with 10 characteristics
+**Loading the diamonds dataset**
+```{r, warning = FALSE}
+library(ggplot2)
+head(diamonds)
+```
+
+## Problem Statement
+- Using the following characteristics (cut, color, clarity and carat) of the diamond to predict the price of the diamond.
+- General linear model is used to fit the model and use it for prediction.
+- Plot is made with the Price of the diamond (y-axis) against the carat of the diamond (x-axis) using **ggplot2**.
+- Deployed using shiny.io web app.
+
+## How to use the app?
+- From the sidebar, choose your diamond by selecting the cut, color, clarity, and carat. 
+- The general linear model will predict the price of the diamond based on your inputs, and displays it at the bottom of the main panel. 
+```{r, eval=FALSE, warning = FALSE}
+pred <- predict(fit, newdata = data.frame(carat = input$car,
+                                              cut = input$cut,
+                                              color = input$col,
+                                              clarity = input$clar))
+```
+- The app will then plot the regression line (in blue).
+```{r, eval=FALSE}
+plot <- ggplot(data=diam, aes(x=carat, y = price))+
+      ...  # remaining code to get the plot
+    plot
+```
+
+## Your Turn!
+- Try out the [](https://rebecca-kee.shinyapps.io/Developing_Data_Products_Course_Project/).
+- View the underlying code for the app [here](https://github.com/rebeccakee/datasciencecoursera/tree/master/09_Developing_Data_Products/Course_Project). 
