@@ -2,9 +2,7 @@
 title: "C9W2 Assignment"
 author: "Nicholas Neo"
 date: "13 July 2020"
-output:
-  pdf_document: default
-  html_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -18,10 +16,6 @@ Create a webpage using R Markdown that features a map created with Leaflet
 [Source](https://www.womensweekly.com.sg/gallery/family/best-chicken-rice-stalls-we-love-in-singapore/)
 ```{r}
 library(leaflet)
-#coords <- data.frame(lat = c(1.2834, 1.2816, 1.2540, 1.3138, 1.2868, 1.2863),
- #                    lng = c(103.8608, 103.8636, 103.8238, 103.8159, 103.8545, 103.8593))
-#popup <- c("Marina Bay Sands", "Gardens by the Bay", "Universal Studios Singapore", "Singapore Botanic Gardens", "Merlion", "ArtScience Museum") 
-
 coords <- data.frame(lat = c(1.299950, 1.303940, 1.343340, 1.313170, 1.320520, 1.307180, 1.307200, 1.348290),
            lng = c(103.840200, 103.901350, 103.775140, 103.785640, 103.742630, 103.833810, 103.906420, 103.853170))
 popup <- c("Jew Kit Hainanese Chicken Rice", "Boneless Chicken Rice Katong Shopping Centre", "Boon Tong Kee Chicken Rice", "Tong Fong Fatt Hainanese Boneless Chicken Rice", "Poh Poh Roasted Chicken Rice", "Hainanese Delicacy", "Five Star Hainanese Chicken Rice", "Ming Kee Chicken Rice")
