@@ -37,5 +37,7 @@ plot <- ggplot(data=diam, aes(x=carat, y = price))+
 ```
 
 ## Your Turn!
-- Try out the [](https://rebecca-kee.shinyapps.io/Developing_Data_Products_Course_Project/).
-- View the underlying code for the app [here](https://github.com/rebeccakee/datasciencecoursera/tree/master/09_Developing_Data_Products/Course_Project). 
+- Try out the [Diamond Predictor](https://thatnicneo.shinyapps.io/c9w4assignment/) now!
+- Source Code:   
+[ui](https://github.com/nicholasneo78/JHU-DataScience-Assignment/blob/master/Course%209.4/C9W4Assignment/ui.R)  
+[server](https://github.com/nicholasneo78/JHU-DataScience-Assignment/blob/master/Course%209.4/C9W4Assignment/server.R)
